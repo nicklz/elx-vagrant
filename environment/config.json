@@ -1,0 +1,34 @@
+{
+  "name": "precise64",
+  "box_url": "http://files.vagrantup.com/precise64.box",
+  "hostname": "myelx",
+  "aliases": {
+    // The key is used as a drush alias
+    "myelx": "local.myelx.com"
+  },
+  "ip": "192.168.54.51",
+  "synced_folder": {
+    "host_path": "../docroot",
+    "guest_path": "/home/vagrant/www"
+  },
+  "synced_scripts": {
+    "host_path": "./fabfile",
+    "guest_path": "/home/vagrant/fabfile"
+  },
+  "vm_gui": false,
+  "vm_name": "myelx-vagrant",
+  "ports": {
+    "http_host_varnish": 8083,
+    "http_guest_varnish": 80,
+    "https_host": 8443,
+    "https_guest": 443,
+    "http_guest_apache": 1000,
+    "http_host_apache": 10003
+  },
+
+  "mem": 12000,
+  "cpus": 4,
+  "nfs": true,
+
+  "rsync_exclude": ["*.git/", ".vagrant", "*sites/local.myelx.com/"]
+}

@@ -1,0 +1,17 @@
+.vagrant
+.idea
+.DS_Store
+.project
+
+docroot/phpmyadmin
+*.sublime-project
+*.sublime-workspace
+*.pyc
+.sass-cache
+**/stage_file_proxy
+
+*id_rsa
+*id_rsa.pub
+drush.dbdumps
+docroot*
+*dump.sql
