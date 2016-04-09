@@ -6,7 +6,7 @@
     // The key is used as a drush alias
     "myelx": "local.myelx.com"
   },
-  "ip": "192.168.54.51",
+  "ip": "192.168.54.155",
   "synced_folder": {
     "host_path": "../docroot",
     "guest_path": "/home/vagrant/www"
@@ -18,15 +18,15 @@
   "vm_gui": false,
   "vm_name": "myelx-vagrant",
   "ports": {
-    "http_host_varnish": 8083,
+    "http_host_varnish": 8085,
     "http_guest_varnish": 80,
-    "https_host": 8443,
+    "https_host": 8447,
     "https_guest": 443,
     "http_guest_apache": 1000,
-    "http_host_apache": 10003
+    "http_host_apache": 20003
   },
 
-  "mem": 12000,
+  "mem": 4096,
   "cpus": 4,
   "nfs": true,
 

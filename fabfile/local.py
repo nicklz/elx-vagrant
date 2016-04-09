@@ -27,15 +27,17 @@ def setup():
 @task
 def setup2():
     with settings(warn_only=True):
-        local('echo "drop database elx;" | mysql -uroot')
-        local('echo "create database elx;" | mysql -uroot')
+        local('echo "drop database myelx;" | mysql -uroot')
+        local('echo "create database myelx;" | mysql -uroot')
 
+        #nodejs
+        local("sudo apt-get update && yes | sudo apt-get install nodejs && yes |  sudo apt-get install npm");
+        #mongodb
+        local("sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10");
+        local('echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list');
+        local("sudo apt-get update");
+        local("yes |  sudo apt-get install -y mongodb-org");
 
-        #local("cd ~/www/sites/local.drsusanloveresearch.org && drush sql-sync @drsusanloveresearchllc.dev @drsusanloveresearchllc.local --create-db -y --source-dump=/tmp/tmp.sql --target-dump=/tmp/tmp.sql --no-cache")
-        #local("cd ~/www/sites/local.drsusanloveresearch.org && drush rsync @drsusanloveresearchllc.dev:%files @drsusanloveresearchllc.local:%files -y")
-        #local("cd ~/www/sites/local.drsusanloveresearch.org && drush pm-enable --yes stage_file_proxy")
-        #local("cd ~/www/sites/local.drsusanloveresearch.org && drush variable-set stage_file_proxy_origin 'http://www.drsusanloveresearch.org' -y")
-        #local("cd ~/www/sites/local.drsusanloveresearch.org && drush variable-set stage_file_proxy_origin_dir 'sites/default/files' -y")
 
 
 
@@ -43,14 +45,14 @@ def setup2():
 def watch():
     with settings(warn_only=True):
         # sass watch
-        local("cd ~/www/sites/all/themes/elx && bundle exec compass watch")
+        local("cd ~/www/sites/all/themes/myelx && bundle exec compass watch")
 
 
 @task
 def compile():
     with settings(warn_only=True):
         # sass compile
-        local("cd ~/www/sites/all/themes/elx && bundle exec compass compile")
+        local("cd ~/www/sites/all/themes/myelx && bundle exec compass compile")
 
 
 @task
