@@ -45,7 +45,7 @@ def setup2():
         local("yes |  sudo apt-get install -y mongodb-org");
         local("yes |  sudo npm install -g bower");
         local("chown vagrant:vagrant /home/vagrant/.config/ -R");
-
+        local("cd ~/www/elx-server && bower update");
 
 
 
