@@ -31,12 +31,21 @@ def setup2():
         local('echo "create database myelx;" | mysql -uroot')
 
         #nodejs
-        local("sudo apt-get update && yes | sudo apt-get install nodejs && yes |  sudo apt-get install npm");
+
+
+
+        local("curl -sL https://deb.nodesource.com/setup | sudo bash - && yes | sudo apt-get install nodejs");
+
+
+
         #mongodb
         local("sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10");
         local('echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list');
         local("sudo apt-get update");
         local("yes |  sudo apt-get install -y mongodb-org");
+        local("yes |  sudo npm install -g bower");
+        local("chown vagrant:vagrant /home/vagrant/.config/ -R");
+
 
 
 

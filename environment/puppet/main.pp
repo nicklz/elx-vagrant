@@ -21,6 +21,7 @@ node default{
     include base-lamp::drupal
     include base-lamp::memcached
     include base-lamp::sshpass
+    include base-lamp::varnish
     include base-lamp::curl
     include base-lamp::rsync
     #include base-lamp::phpmyadmin

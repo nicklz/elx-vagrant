@@ -2,11 +2,11 @@
     ServerAdmin webmaster@localhost
     ServerName myelx
     ServerAlias local.myelx.com
-    DocumentRoot /home/vagrant/www
+    DocumentRoot /home/vagrant/www/elx-learning-module
     
     SetEnv APPLICATION_ENV development
     
-    <Directory /home/vagrant/www>
+    <Directory /home/vagrant/www/elx-learning-module>
             Options Indexes FollowSymLinks MultiViews
             EnableSendfile Off
             AllowOverride All
@@ -25,7 +25,7 @@
 </VirtualHost>
 
 <VirtualHost *:443>
-    DocumentRoot "/home/vagrant/www"
+    DocumentRoot "/home/vagrant/www/elx-learning-module"
     ServerName resa:443
     ServerAdmin webmaster@localhost
     EnableSendfile Off
@@ -42,7 +42,7 @@
         SSLOptions +StdEnvVars
     </FilesMatch>
 
-    <Directory "/home/vagrant/www">
+    <Directory "/home/vagrant/www/elx-learning-module">
         Options FollowSymLinks
         AllowOverride All
         Order allow,deny
