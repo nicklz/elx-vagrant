@@ -43,9 +43,25 @@ def setup2():
         local('echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list');
         local("sudo apt-get update");
         local("yes |  sudo apt-get install -y mongodb-org");
+        local("sudo mkdir -p /data/db");
+        local("sudo mongod");
+        local("~/www/elx-server/packages/custom/elx/tools/sync-mongo.sh");
+
+
+
+        #npn stuff
         local("yes |  sudo npm install -g bower");
-        local("chown vagrant:vagrant /home/vagrant/.config/ -R");
+        local("sudo chown vagrant:vagrant /home/vagrant/.config/ -R");
         local("cd ~/www/elx-server && bower update");
+        local("yes |  sudo npm install -g gulp");
+        local("yes |  sudo npm install -g grunt");
+        local("yes |  sudo npm install -g time-grunt");
+
+        local("sudo chown vagrant:vagrant /home/vagrant/.config/ -R");
+        local("cd ~/www/elx-interface && bower update");
+
+        local("cd ~/www/elx-newplayer && bower update");
+
 
 
 
