@@ -20,7 +20,17 @@ from fabric.api import settings
 @task
 def setup():
     with settings(warn_only=True):
-        # Install local database from staging server
+        #edit these to your own info -- will put this inconfig file someday
+        local('cd ~/www/ && git config --global user.email "nicholas.kuhn@spi.com"')
+        local('cd ~/www/ && git config --global user.name "Nick Kuhn"')
+        local('cd ~/www/ && git config --global core.editor "vim"')
+
+        #set up repos
+        local("cd ~/www/ && git clone git@github.com:MasterDoublePrime/elx-interface.git");
+        local("cd ~/www/ && git clone git@github.com:MasterDoublePrime/elx-server.git");
+        local("cd ~/www/ && git clone git@github.com:MasterDoublePrime/elx-learning-module.git");
+        local("cd ~/www/ && git clone git@github.com:MasterDoublePrime/elx-newplayer.git");
+
         local("gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3");
         local("curl -sSL https://get.rvm.io | bash -s stable");
         local("echo '\n\n\n*** USE COMMAND: *** \n\n\n source /home/vagrant/.rvm/scripts/rvm && rvm install ruby-1.9.3-p551 && rvm use ruby-1.9.3-p551 \n\n\n'");
@@ -44,7 +54,7 @@ def setup2():
         local("sudo apt-get update");
         local("yes |  sudo apt-get install -y mongodb-org");
         local("sudo mkdir -p /data/db");
-        local("sudo mongod");
+        local("sudo mongod &");
         local("~/www/elx-server/packages/custom/elx/tools/sync-mongo.sh");
 
 

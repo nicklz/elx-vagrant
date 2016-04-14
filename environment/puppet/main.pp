@@ -16,6 +16,7 @@ node default{
     include base-lamp::git
     include base-lamp::mysql5
     include base-lamp::ssh
+    include base-lamp::hosts
     #include base-lamp::grunt
     include base-lamp::drush
     include base-lamp::drupal
