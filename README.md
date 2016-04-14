@@ -7,7 +7,7 @@
 ##Steps
 * git clone git@github.com:nicklz/elx-vagrant.git vagrant
 * mkdir docroot
-* cp ~/.ssh/id_rsa vagrant/environment/puppet/modules/base-lamp/files/ssh/
+* cp ~/.ssh/id_rsa vagrant/environment/puppet/modules/base-lamp/files/ssh/ (** ensure your ssh key has been added to all servers **)
 * cd vagrant
 * vagrant plugin install vagrant-hostsupdater
 * vagrant up
