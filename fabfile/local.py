@@ -20,6 +20,10 @@ from fabric.api import settings
 @task
 def setup():
     with settings(warn_only=True):
+        local('sudo locale-gen  en_US.UTF-8 ')
+        local('export LC_ALL="en_US.UTF-8" ')
+        local('export LANG="en_US.UTF-8" ')
+
         #edit these to your own info -- will put this inconfig file someday
         local('cd ~/www/ && git config --global user.email "nicholas.kuhn@spi.com"')
         local('cd ~/www/ && git config --global user.name "Nick Kuhn"')
@@ -54,8 +58,9 @@ def setup2():
         local("sudo apt-get update");
         local("yes |  sudo apt-get install -y mongodb-org");
         local("sudo mkdir -p /data/db");
-        local("sudo mongod &");
-        local("~/www/elx-server/packages/custom/elx/tools/sync-mongo.sh");
+        local("sudo mongod --port 27020 &");
+        local("mkdir /home/vagrant/mongo_backups");
+        local("cd ~/www/elx-server/packages/custom/elx/tools/ && ./sync-mongo-rsync.sh");
 
 
 

@@ -12,6 +12,8 @@
 * vagrant plugin install vagrant-hostsupdater
 * vagrant up
 * vagrant ssh
-* fab local.setup && source /home/vagrant/.rvm/scripts/rvm && rvm install ruby-1.9.3-p551 && rvm use ruby-1.9.3-p551 && fab local.setup2
+* fab local.setup
+* source /home/vagrant/.rvm/scripts/rvm && rvm install ruby-1.9.3-p551 (** this is a bug - need to fix this so we can combine everything **)
+* fab local.setup2
 * Visit in your browser: http://local.myelx.com
 * Thats it!
