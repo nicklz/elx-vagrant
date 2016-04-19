@@ -215,7 +215,7 @@ $databases = array (
     array (
       'default' =>
         array (
-          'database' => 'myelx',
+          'database' => 'drupal',
           'username' => 'root',
           'password' => '',
           'host' => 'localhost',

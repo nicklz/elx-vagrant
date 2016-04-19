@@ -1,10 +1,10 @@
 class base-lamp::drupal {
 
-    file{'local.myelx.com':
-            path => '/home/vagrant/www/elx-learning-module/sites/local.myelx.com',
+    file{'drupal':
+            path => '/home/vagrant/www/drupal',
             ensure => present,
             recurse => true,
-            source => "puppet:///modules/base-lamp/drupal/local.myelx.com",
+            source => "puppet:///modules/base-lamp/drupal/drupal",
             owner => vagrant,
             group => vagrant;
     }
