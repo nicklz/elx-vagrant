@@ -12,8 +12,8 @@
     "guest_path": "/home/vagrant/www"
   },
   "synced_scripts": {
-    "host_path": "./fabfile",
-    "guest_path": "/home/vagrant/fabfile"
+    "host_path": "./scripts",
+    "guest_path": "/home/vagrant/scripts"
   },
   "vm_gui": false,
   "vm_name": "myelx-vagrant",
