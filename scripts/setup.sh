@@ -11,6 +11,12 @@ cd ~/www/ && git config --global user.name "Nick Kuhn"
 cd ~/www/ && git config --global core.editor "vim"
 
 #set up git repos
+
+rm -rf /home/vagrant/www/elx-interface
+rm -rf /home/vagrant/www/elx-server
+rm -rf /home/vagrant/www/elx-learning-module
+rm -rf /home/vagrant/www/elx-newplayer
+
 cd ~/www/ && git clone git@github.com:MasterDoublePrime/elx-interface.git
 cd ~/www/ && git clone git@github.com:MasterDoublePrime/elx-server.git
 cd ~/www/ && git clone git@github.com:MasterDoublePrime/elx-learning-module.git
