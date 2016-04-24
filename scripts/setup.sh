@@ -48,7 +48,7 @@ rm -rf ~/www/elx-learning-module/sites/drupal && cp -rf ~/www/drupal ~/www/elx-l
 cd ~/www/elx-server/packages/custom/elx/tools/ && ./vagrant-sync-mysql.sh
 
 #npn stuff
-npm update npm -g
+sudo npm update npm -g
 
 yes |  sudo npm install -g bower
 yes |  sudo npm install -g gulp
