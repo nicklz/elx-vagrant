@@ -48,20 +48,28 @@ rm -rf ~/www/elx-learning-module/sites/drupal && cp -rf ~/www/drupal ~/www/elx-l
 cd ~/www/elx-server/packages/custom/elx/tools/ && ./vagrant-sync-mysql.sh
 
 #npn stuff
+npm update npm -g
+
 yes |  sudo npm install -g bower
 yes |  sudo npm install -g gulp
 yes |  sudo npm install -g grunt
 yes |  sudo npm install -g time-grunt
+yes |  sudo npm install -g karma
+yes |  sudo npm install -g forever
+yes |  sudo npm install -g node-gyp
+
+
+
 
 #build / update the codebases
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
 cd ~/www/elx-server && bower update && ./jenkins.sh
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-interface && bower update && ./jenkins.sh
+cd ~/www/elx-newplayer && bower update && ./jenkins.sh
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-newplayer && bower update && ./jenkins.sh
+cd ~/www/elx-interface && bower update && ./jenkins.sh
 
 #wire everything up
 ln -s /home/vagrant/www/elx-server/packages/custom/elx/public/assets/app /home/vagrant/www/elx-interface/src/app
