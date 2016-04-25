@@ -51,7 +51,7 @@ cd ~/www/elx-server/packages/custom/elx/tools/ && ./vagrant-sync-mysql.sh
 sudo npm update npm -g
 
 sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
-nvm install v5.11.0
+nvm install v
 nvm alias default v5.11.0
 
 yes |  sudo npm install -g bower
