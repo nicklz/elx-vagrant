@@ -90,3 +90,6 @@ ln -s /home/vagrant/www/elx-interface/src/app/theme/fonts/ /home/vagrant/www/elx
 ln -s /home/vagrant/www/elx-interface/src/app/theme/fonts /home/vagrant/www/elx-server/packages/custom/elx/public/assets/styles/theme/fonts
 ln -s /home/vagrant/www/elx-interface/src/app/theme/images /home/vagrant/www/elx-server/packages/custom/elx/public/assets/styles/theme/images 
 ln -s /home/vagrant/www/elx-interface/src/index.html /home/vagrant/www/elx-server/packages/custom/elx/server/views/index.html 
+
+
+cd ~/www/elx-server node server.js
