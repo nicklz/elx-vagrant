@@ -77,14 +77,16 @@ sudo chown vagrant:vagrant /home/vagrant/.config/ -R
 cd ~/www/elx-interface && bower update && ./jenkins.sh
 
 #wire everything up
-ln -s /home/vagrant/www/elx-server/packages/custom/elx/public/assets/app /home/vagrant/www/elx-interface/src/app
-ln -s /home/vagrant/www/elx-server/packages/custom/elx/public/assets/bower_components /home/vagrant/www/elx-interface/bower_components
-ln -s /home/vagrant/www/elx-server/packages/custom/elx/public/assets/fonts /home/vagrant/www/elx-interface/dist/fonts
-ln -s /home/vagrant/www/elx-server/packages/custom/elx/public/assets/inject /home/vagrant/www/elx-interface/dist/inject
-ln -s /home/vagrant/www/elx-server/packages/custom/elx/public/assets/locales /home/vagrant/www/elx-interface/locales
-ln -s /home/vagrant/www/elx-server/packages/custom/elx/public/assets/scripts /home/vagrant/www/elx-interface/dist/scripts
-ln -s /home/vagrant/www/elx-server/packages/custom/elx/public/assets/styles /home/vagrant/www/elx-interface/dist/styles
-ln -s /home/vagrant/www/elx-server/packages/custom/elx/public/assets/fonts/ /home/vagrant/www/elx-interface/src/app/theme/fonts/
-ln -s /home/vagrant/www/elx-server/packages/custom/elx/public/assets/styles/theme/fonts /home/vagrant/www/elx-interface/src/app/theme/fonts
-ln -s /home/vagrant/www/elx-server/packages/custom/elx/public/assets/styles/theme/images /home/vagrant/www/elx-interface/src/app/theme/images
-ln -s /home/vagrant/www/elx-server/packages/custom/elx/server/views/index.html /home/vagrant/www/elx-interface/dist/index.html
+mkdir /home/vagrant/www/elx-server/packages/custom/elx/public/assets
+
+ln -s /home/vagrant/www/elx-interface/src/app /home/vagrant/www/elx-server/packages/custom/elx/public/assets/app
+ln -s /home/vagrant/www/elx-interface/bower_components /home/vagrant/www/elx-server/packages/custom/elx/public/assets/bower_components 
+ln -s /home/vagrant/www/elx-interface/src/fonts /home/vagrant/www/elx-server/packages/custom/elx/public/assets/fonts 
+ln -s /home/vagrant/www/elx-server/dist/inject /home/vagrant/www/elx-server/packages/custom/elx/public/assets/inject 
+ln -s /home/vagrant/www/elx-interface/locales /home/vagrant/www/elx-server/packages/custom/elx/public/assets/locales 
+ln -s /home/vagrant/www/elx-interface/src/scripts /home/vagrant/www/elx-server/packages/custom/elx/public/assets/scripts 
+ln -s /home/vagrant/www/elx-interface/dist/styles /home/vagrant/www/elx-server/packages/custom/elx/public/assets/styles 
+ln -s /home/vagrant/www/elx-interface/src/app/theme/fonts/ /home/vagrant/www/elx-server/packages/custom/elx/public/assets/elx_fonts/ 
+ln -s /home/vagrant/www/elx-interface/src/app/theme/fonts /home/vagrant/www/elx-server/packages/custom/elx/public/assets/styles/theme/fonts
+ln -s /home/vagrant/www/elx-interface/src/app/theme/images /home/vagrant/www/elx-server/packages/custom/elx/public/assets/styles/theme/images 
+ln -s /home/vagrant/www/elx-interface/src/index.html /home/vagrant/www/elx-server/packages/custom/elx/server/views/index.html 
