@@ -1,7 +1,7 @@
-<VirtualHost *:80>
+<VirtualHost *:8080>
     ServerAdmin webmaster@localhost
-    ServerName myelx
-    ServerAlias local.myelx.com
+    ServerName drupal
+    ServerAlias localmyelx.cloudapp.net
     DocumentRoot /home/vagrant/www/elx-learning-module
     
     SetEnv APPLICATION_ENV development
