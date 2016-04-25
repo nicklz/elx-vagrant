@@ -50,6 +50,10 @@ cd ~/www/elx-server/packages/custom/elx/tools/ && ./vagrant-sync-mysql.sh
 #npn stuff
 sudo npm update npm -g
 
+sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+nvm install v5.11.0
+nvm alias default v5.11.0
+
 yes |  sudo npm install -g bower
 yes |  sudo npm install -g gulp
 yes |  sudo npm install -g grunt
@@ -57,6 +61,7 @@ yes |  sudo npm install -g time-grunt
 yes |  sudo npm install -g karma
 yes |  sudo npm install -g forever
 yes |  sudo npm install -g node-gyp
+yes |  sudo npm install -g mean-cli
 
 
 
