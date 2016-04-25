@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-
+#this was causing ssh errors
 sudo locale-gen  en_US.UTF-8 
 export LC_ALL="en_US.UTF-8" 
 export LANG="en_US.UTF-8" 
@@ -11,7 +11,6 @@ cd ~/www/ && git config --global user.name "Nick Kuhn"
 cd ~/www/ && git config --global core.editor "vim"
 
 #set up git repos
-
 rm -rf /home/vagrant/www/elx-interface
 rm -rf /home/vagrant/www/elx-server
 rm -rf /home/vagrant/www/elx-learning-module
@@ -47,9 +46,8 @@ mkdir /home/vagrant/mysql_backups
 rm -rf ~/www/elx-learning-module/sites/drupal && cp -rf ~/www/drupal ~/www/elx-learning-module/sites/
 cd ~/www/elx-server/packages/custom/elx/tools/ && ./vagrant-sync-mysql.sh
 
-#npn stuff
+#npn stuff - this version is currently the only one I found that works
 sudo npm update npm -g
-
 sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 nvm install v
 nvm alias default v5.11.0
@@ -65,7 +63,6 @@ yes |  sudo npm install -g mean-cli
 
 
 
-
 #build / update the codebases
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
 cd ~/www/elx-server && bower update && ./jenkins.sh
@@ -78,7 +75,6 @@ cd ~/www/elx-interface && bower update && ./jenkins.sh
 
 #wire everything up
 mkdir /home/vagrant/www/elx-server/packages/custom/elx/public/assets
-
 ln -s /home/vagrant/www/elx-interface/src/app /home/vagrant/www/elx-server/packages/custom/elx/public/assets/app
 ln -s /home/vagrant/www/elx-interface/bower_components /home/vagrant/www/elx-server/packages/custom/elx/public/assets/bower_components 
 ln -s /home/vagrant/www/elx-interface/src/fonts /home/vagrant/www/elx-server/packages/custom/elx/public/assets/fonts 
@@ -91,5 +87,8 @@ ln -s /home/vagrant/www/elx-interface/src/app/theme/fonts /home/vagrant/www/elx-
 ln -s /home/vagrant/www/elx-interface/src/app/theme/images /home/vagrant/www/elx-server/packages/custom/elx/public/assets/styles/theme/images 
 ln -s /home/vagrant/www/elx-interface/src/index.html /home/vagrant/www/elx-server/packages/custom/elx/server/views/index.html 
 
+#start everything up
+sudo service apache2 restart
+sudo service varnish restart
 
 cd ~/www/elx-server node server.js

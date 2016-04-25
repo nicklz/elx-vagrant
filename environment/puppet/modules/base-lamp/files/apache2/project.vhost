@@ -10,8 +10,7 @@
             Options Indexes FollowSymLinks MultiViews
             EnableSendfile Off
             AllowOverride All
-            Order allow,deny
-            allow from all
+            Require all granted
     </Directory>
 
     ErrorLog ${APACHE_LOG_DIR}/myelx_error.log
@@ -45,8 +44,7 @@
     <Directory "/home/vagrant/www/elx-learning-module">
         Options FollowSymLinks
         AllowOverride All
-        Order allow,deny
-        Allow from all
+        Require all granted
     </Directory>
 
     BrowserMatch ".*MSIE.*" \

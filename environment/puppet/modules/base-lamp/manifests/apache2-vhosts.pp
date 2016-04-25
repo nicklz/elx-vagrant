@@ -9,7 +9,7 @@ class base-lamp::apache2-vhosts {
             group => root;
     }
 
-    file{'/etc/apache2/sites-enabled/000-project':
+    file{'/etc/apache2/sites-enabled/000-project.conf':
             ensure => link,
             target => '/etc/apache2/sites-available/project',
             require => [Package['apache2'], File['project.vhost']],

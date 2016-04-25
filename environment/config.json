@@ -1,6 +1,6 @@
 {
-  "name": "precise64",
-  "box_url": "http://files.vagrantup.com/precise64.box",
+  "name": "vivid64",
+  "box_url": "https://cloud-images.ubuntu.com/vagrant/vivid/current/vivid-server-cloudimg-amd64-vagrant-disk1.box",
   "hostname": "myelx",
   "aliases": {
     // The key is used as a drush alias
@@ -22,8 +22,10 @@
     "http_guest_varnish": 80,
     "https_host": 8447,
     "https_guest": 443,
-    "http_guest_apache": 1000,
-    "http_host_apache": 20003
+    "http_guest_apache": 8080,
+    "http_host_apache": 20003,
+    "http_guest_mean": 3000,
+    "http_host_mean": 3001
   },
 
   "mem": 4096,

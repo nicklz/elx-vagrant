@@ -5,6 +5,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.provision :shell, inline: "hostnamectl set-hostname lwvc"
   host = RbConfig::CONFIG['host_os']
 	config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
 
