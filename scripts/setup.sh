@@ -33,10 +33,11 @@ curl -sL https://deb.nodesource.com/setup | sudo bash - && yes | sudo apt-get in
 
 #mongodb
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
 sudo apt-get update
-yes |  sudo apt-get install -y mongodb-org
+yes | sudo apt-get install -y mongodb-org
 sudo mkdir -p /data/db
+sudo sed -i 's/\/var\/lib\/mongodb/\/data\/db/g' /etc/mongod.conf
 sudo mongod --port 27020 &
 mkdir /home/vagrant/mongo_backups
 cd ~/www/elx-server/packages/custom/elx/tools/ && ./vagrant-sync-mongo.sh
