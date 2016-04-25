@@ -71,7 +71,7 @@ sudo chown vagrant:vagrant /home/vagrant/.config/ -R
 cd ~/www/elx-server && bower update && ./jenkins.sh
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-newplayer && bower update && ./jenkins.sh
+cd ~/www/elx-newplayer && bower update && npm install mean-cli ./jenkins.sh
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
 cd ~/www/elx-interface && bower update && ./jenkins.sh
