@@ -2,15 +2,16 @@
 
 #build / update the codebases
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-server && bower update && npm install mean-cli &&  ./jenkins.sh
+cd ~/www/elx-server && bower update && sudo ./jenkins.sh
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-newplayer && bower update &&  ./jenkins.sh
+cd ~/www/elx-newplayer && bower update && sudo ./jenkins.sh
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-interface && bower update && ./jenkins.sh
+cd ~/www/elx-interface && bower update && sudo ./jenkins.sh
 
 #wire everything up
+
 ln -s /home/vagrant/www/elx-interface/src/app /home/vagrant/www/elx-server/packages/custom/elx/public/assets/app 
 ln -s /home/vagrant/www/elx-interface/bower_components /home/vagrant/www/elx-server/packages/custom/elx/public/assets/bower_components 
 ln -s /home/vagrant/www/elx-interface/dist/fonts /home/vagrant/www/elx-server/packages/custom/elx/public/assets/fonts 
@@ -22,5 +23,3 @@ ln -s /home/vagrant/www/elx-interface/src/app/theme/fonts /home/vagrant/www/elx-
 ln -s /home/vagrant/www/elx-interface/src/app/theme/fonts /home/vagrant/www/elx-server/packages/custom/elx/public/assets/styles/theme/fonts 
 ln -s /home/vagrant/www/elx-interface/src/app/theme/images /home/vagrant/www/elx-server/packages/custom/elx/public/assets/styles/theme/images 
 ln -s /home/vagrant/www/elx-interface/dist/index.html /home/vagrant/www/elx-server/packages/custom/elx/server/views/index.html 
-
-

@@ -53,19 +53,13 @@ sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.s
 nvm install v0.10.44
 nvm alias default v0.10.44
 
-yes |  sudo npm install -g bower
-yes |  sudo npm install -g gulp
-yes |  sudo npm install -g grunt
-yes |  sudo npm install -g time-grunt
-yes |  sudo npm install -g karma
-yes |  sudo npm install -g forever
-yes |  sudo npm install -g node-gyp
+yes |  sudo npm install -g bower  gulp  grunt time-grunt karma  forever  node-gyp
 
 
 
 #build / update the codebases
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-server && bower update && npm install mean-cli && ./jenkins.sh
+cd ~/www/elx-server && bower update  && ./jenkins.sh
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
 cd ~/www/elx-newplayer && bower update &&  ./jenkins.sh
@@ -73,7 +67,12 @@ cd ~/www/elx-newplayer && bower update &&  ./jenkins.sh
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
 cd ~/www/elx-interface && bower update && ./jenkins.sh
 
+
+
+
+
 #wire everything up
+mkdir /home/vagrant/www/elx-server/packages/custom/elx/public/assets
 ln -s /home/vagrant/www/elx-interface/src/app /home/vagrant/www/elx-server/packages/custom/elx/public/assets/app 
 ln -s /home/vagrant/www/elx-interface/bower_components /home/vagrant/www/elx-server/packages/custom/elx/public/assets/bower_components 
 ln -s /home/vagrant/www/elx-interface/dist/fonts /home/vagrant/www/elx-server/packages/custom/elx/public/assets/fonts 
@@ -85,6 +84,9 @@ ln -s /home/vagrant/www/elx-interface/src/app/theme/fonts /home/vagrant/www/elx-
 ln -s /home/vagrant/www/elx-interface/src/app/theme/fonts /home/vagrant/www/elx-server/packages/custom/elx/public/assets/styles/theme/fonts 
 ln -s /home/vagrant/www/elx-interface/src/app/theme/images /home/vagrant/www/elx-server/packages/custom/elx/public/assets/styles/theme/images 
 ln -s /home/vagrant/www/elx-interface/dist/index.html /home/vagrant/www/elx-server/packages/custom/elx/server/views/index.html 
+
+
+
 
 #start everything up
 
