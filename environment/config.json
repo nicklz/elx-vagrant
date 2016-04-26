@@ -23,9 +23,7 @@
     "https_host": 8447,
     "https_guest": 443,
     "http_guest_apache": 8080,
-    "http_host_apache": 20003,
-    "http_guest_mean": 3000,
-    "http_host_mean": 3001
+    "http_host_apache": 20003
   },
 
   "mem": 4096,

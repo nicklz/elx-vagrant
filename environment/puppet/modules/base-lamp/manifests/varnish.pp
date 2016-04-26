@@ -14,12 +14,4 @@ class base-lamp::varnish {
     }
 
 
-    file{'varnish':
-            path => '/etc/default/varnish',
-            ensure => present,
-            source => "puppet:///modules/base-lamp/varnish/varnish",
-            owner => root,
-            group => root,
-            mode => 0644;
-    }
 }

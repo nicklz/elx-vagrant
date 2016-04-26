@@ -50,8 +50,8 @@ cd ~/www/elx-server/packages/custom/elx/tools/ && ./vagrant-sync-mysql.sh
 #npn stuff - this version is currently the only one I found that works
 sudo npm update npm -g
 sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
-nvm install v
-nvm alias default v5.11.0
+nvm install v0.10.44
+nvm alias default v0.10.44
 
 yes |  sudo npm install -g bower
 yes |  sudo npm install -g gulp
@@ -60,16 +60,15 @@ yes |  sudo npm install -g time-grunt
 yes |  sudo npm install -g karma
 yes |  sudo npm install -g forever
 yes |  sudo npm install -g node-gyp
-yes |  sudo npm install -g mean-cli
 
 
 
 #build / update the codebases
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-server && bower update && ./jenkins.sh
+cd ~/www/elx-server && bower update && npm install mean-cli && ./jenkins.sh
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-newplayer && bower update && npm install mean-cli && ./jenkins.sh
+cd ~/www/elx-newplayer && bower update &&  ./jenkins.sh
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
 cd ~/www/elx-interface && bower update && ./jenkins.sh
@@ -88,6 +87,9 @@ ln -s /home/vagrant/www/elx-interface/src/app/theme/images /home/vagrant/www/elx
 ln -s /home/vagrant/www/elx-interface/dist/index.html /home/vagrant/www/elx-server/packages/custom/elx/server/views/index.html 
 
 #start everything up
+
+sudo sed -i 's/6081/80/g' /etc/default/varnish
+sudo sed -i 's/80/8080/g' /etc/apache2/ports.conf
 sudo service apache2 restart
 sudo service varnish restart
 
