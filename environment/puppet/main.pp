@@ -19,7 +19,7 @@ node default{
     include base-lamp::hosts
     #include base-lamp::grunt
     include base-lamp::drush
-    #include base-lamp::drupal
+    include base-lamp::drupal
     include base-lamp::memcached
     include base-lamp::sshpass
     include base-lamp::varnish
