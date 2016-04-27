@@ -89,9 +89,16 @@ ln -s /home/vagrant/www/elx-interface/dist/index.html /home/vagrant/www/elx-serv
 
 
 
-#start everything up
-
+#fix varnish ports (use 80) - this is special only to ubuntu 15 unfortunately
 sudo sed -i 's/6081/80/g' /etc/default/varnish
+sudo sed -i 's/6081/80/g' /etc/systemd/system/multi-user.target.wants/varnish.service
+sudo cp /lib/systemd/system/varnish.service /etc/systemd/system/
+sudo sed -i 's/6081/80/g' /etc/systemd/system/varnish.service
+
+sudo systemctl daemon-reload
+sudo systemctl restart varnish.service
+
+#change apache to 8080
 sudo sed -i 's/80/8080/g' /etc/apache2/ports.conf
 sudo service apache2 restart
 sudo service varnish restart
