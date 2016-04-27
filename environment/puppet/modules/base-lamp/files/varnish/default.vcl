@@ -14,35 +14,52 @@ vcl 4.0;
 
 # Default backend definition. Set this to point to your content server.
 
+
 backend default {
-    .host = "127.0.0.1";
-    .port = "3000";
+       .host = "127.0.0.1";
+       .port = "3000";
 }
 
 
 backend mean {
-     .host = "127.0.0.1";
-     .port = "3000";
+       .host = "127.0.0.1";
+       .port = "3000";
 }
 
 backend drupal {
-      .host = "127.0.0.1";
-      .port = "8080";
+       .host = "127.0.0.1";
+       .port = "8080";
 }
 sub vcl_recv {
+
   if (req.http.host == "local.myelx.com") {
         #You will need the following line only if your backend has multiple virtual host names
         set req.http.host = "mean";
         set req.backend_hint = mean;
         return (pass);
-    }
-    if (req.http.host == "localmyelx.cloudapp.net") {
+  }
+  if (req.http.host == "localmyelx.cloudapp.net") {
         #You will need the following line only if your backend has multiple virtual host names
         set req.http.host = "drupal";
         set req.backend_hint = drupal;
         return (pass);
-    }
- }
+  }
+  if (req.http.host == "mean") {
+        #You will need the following line only if your backend has multiple virtual host names
+        set req.http.host = "mean";
+        set req.backend_hint = mean;
+        return (pass);
+  }
+  if (req.http.host == "drupal") {
+        #You will need the following line only if your backend has multiple virtual host names
+        set req.http.host = "drupal";
+        set req.backend_hint = drupal;
+        return (pass);
+  }
+
+}
+
+
 
 sub vcl_backend_response {
     # Happens after we have read the response headers from the backend.
