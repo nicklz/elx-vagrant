@@ -45,7 +45,7 @@ cd ~/www/elx-server/packages/custom/elx/tools/ && ./vagrant-sync-mongo.sh
 
 #mysql
 mkdir /home/vagrant/mysql_backups
-rm -rf ~/www/elx-learning-module/sites/drupal && cp -rf ~/www/drupal ~/www/elx-learning-module/sites/
+rm -rf ~/www/elx-learning-module/sites/default/settings.php && cp -rf ~/www/drupal/settings.php ~/www/elx-learning-module/sites/default/settings.php
 cd ~/www/elx-server/packages/custom/elx/tools/ && ./vagrant-sync-mysql.sh
 
 #npn stuff - this version is currently the only one I found that works
