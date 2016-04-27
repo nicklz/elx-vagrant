@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 
 #build / update the codebases
-sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-server && bower update && sudo ./jenkins.sh
+
+sudo chmod 777 -R /usr/lib/node_modules
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-newplayer && bower update && sudo ./jenkins.sh
+cd ~/www/elx-server && bower update &&  ./jenkins.sh
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-interface && bower update && sudo ./jenkins.sh
+cd ~/www/elx-newplayer && bower update &&  ./jenkins.sh
+
+sudo chown vagrant:vagrant /home/vagrant/.config/ -R
+cd ~/www/elx-interface && bower update &&  ./jenkins.sh
 
 #wire everything up
 
