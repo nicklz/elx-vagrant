@@ -5,16 +5,23 @@
 sudo chmod 777 -R /usr/lib/node_modules
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-server && bower update &&  ./jenkins.sh
+cd ~/www/elx-server && bower update &&  npm install karma sshpk mean-cli http-signature meanio  && ./jenkins.sh
+
+sudo chown vagrant:vagrant /home/vagrant/.config/ -R
+cd ~/www/elx-interface && bower update && npm install   jasmine-core karma && ./jenkins.sh
+
+sudo chown vagrant:vagrant /home/vagrant/.config/ -R
+cd ~/www/elx-interface && rm -rf bower_components && gulp --jenkins
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
 cd ~/www/elx-newplayer && bower update &&  ./jenkins.sh
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-interface && bower update &&  ./jenkins.sh
+cd ~/www/elx-interface && bower update
 
 #wire everything up
-
+rm -rf /home/vagrant/www/elx-server/packages/custom/elx/public/assets 
+mkdir /home/vagrant/www/elx-server/packages/custom/elx/public/assets
 ln -s /home/vagrant/www/elx-interface/src/app /home/vagrant/www/elx-server/packages/custom/elx/public/assets/app 
 ln -s /home/vagrant/www/elx-interface/bower_components /home/vagrant/www/elx-server/packages/custom/elx/public/assets/bower_components 
 ln -s /home/vagrant/www/elx-interface/dist/fonts /home/vagrant/www/elx-server/packages/custom/elx/public/assets/fonts 
