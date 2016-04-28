@@ -4,6 +4,8 @@
 
 sudo chmod 777 -R /usr/lib/node_modules
 
+npm cache clean
+
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
 cd ~/www/elx-server && bower update &&  npm install karma sshpk mean-cli http-signature meanio --no-bin-links
 
