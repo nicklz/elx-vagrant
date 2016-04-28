@@ -5,7 +5,7 @@
 sudo chmod 777 -R /usr/lib/node_modules
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-server && bower update &&  npm install karma sshpk mean-cli http-signature meanio  && ./jenkins.sh
+cd ~/www/elx-server && bower update &&  npm install karma sshpk mean-cli http-signature meanio --no-bin-links
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
 cd ~/www/elx-interface && bower update && npm install   jasmine-core karma && ./jenkins.sh
