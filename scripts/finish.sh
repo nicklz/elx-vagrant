@@ -21,6 +21,9 @@ cd ~/www/elx-newplayer && bower update &&  ./jenkins.sh
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
 cd ~/www/elx-interface && bower update
 
+sudo chown vagrant:vagrant /home/vagrant/.config/ -R
+cd ~/www/elx-server && ./jenkins.sh
+
 #wire everything up
 rm -rf /home/vagrant/www/elx-server/packages/custom/elx/public/assets 
 mkdir /home/vagrant/www/elx-server/packages/custom/elx/public/assets
