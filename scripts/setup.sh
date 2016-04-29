@@ -5,6 +5,26 @@ sudo locale-gen  en_US.UTF-8
 export LC_ALL="en_US.UTF-8" 
 export LANG="en_US.UTF-8" 
 
+#so we dont have to type yes
+ssh-keyscan -H 192.30.252.130 >> ~/.ssh/known_hosts
+ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+
+ssh-keyscan -H 217.197.135.103 >> ~/.ssh/known_hosts
+ssh-keyscan -H keys.gnupg.net >> ~/.ssh/known_hosts
+
+ssh-keyscan -H 54.192.19.54 >> ~/.ssh/known_hosts
+ssh-keyscan -H repo.mongodb.org >> ~/.ssh/known_hosts
+
+ssh-keyscan -H 185.31.17.133 >> ~/.ssh/known_hosts
+ssh-keyscan -H raw.githubusercontent.com >> ~/.ssh/known_hosts
+
+
+ssh-keyscan -H 191.236.59.215 >> ~/.ssh/known_hosts
+ssh-keyscan -p 49894 -H stagemyelx.cloudapp.net >> ~/.ssh/known_hosts
+
+ssh-keyscan -H myelxadmin@stagemyelx.cloudapp.net >> ~/.ssh/known_hosts
+
+
 #TODO: this needs to be added to a config file
 cd ~/www/ && git config --global user.email "nicholas.kuhn@spi.com"
 cd ~/www/ && git config --global user.name "Nick Kuhn"
