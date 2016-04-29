@@ -40,7 +40,8 @@ sudo mkdir -p /data/db
 sudo sed -i 's/\/var\/lib\/mongodb/\/data\/db/g' /etc/mongod.conf
 #sudo mongod --port 27020 &
 sudo mongod &
-mkdir /home/vagrant/mongo_backups
+sudo mkdir /data/mongo_backups
+sudo chmod 777 /data/mongo_backups
 cd ~/www/elx-server/packages/custom/elx/tools/ && ./vagrant-sync-mongo.sh
 
 #mysql
