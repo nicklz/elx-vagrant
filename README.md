@@ -11,6 +11,7 @@
 * cd vagrant
 * vagrant plugin install vagrant-hostsupdater
 * vagrant up
+* vagrant reload
 * vagrant ssh
 * ./scripts/setup.sh
 * Visit in your browser: http://local.myelx.com
