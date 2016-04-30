@@ -6,8 +6,9 @@ sudo chmod 777 -R /usr/lib/node_modules
 
 npm cache clean
 
+#no bin links seems to fix an error for windows.. it needs to be ran a couple times too
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-server && bower update &&  npm install karma sshpk mean-cli http-signature meanio --no-bin-links
+cd ~/www/elx-server && bower update &&  npm install karma sshpk mean-cli http-signature meanio --no-bin-links && npm install --no-bin-links&& npm install --no-bin-links
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
 cd ~/www/elx-interface && bower update && npm install   jasmine-core karma && ./jenkins.sh
