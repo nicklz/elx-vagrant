@@ -94,7 +94,11 @@ sudo systemctl restart varnish.service
 
 #change apache to 8080
 sudo sed -i 's/80/8080/g' /etc/apache2/ports.conf
+
+
+sudo a2dissite 000-default.conf
 sudo service apache2 restart
 sudo service varnish restart
 
-cd ~/www/elx-server node server.js
+
+cd ~/www/elx-server && nohup node server.js &
