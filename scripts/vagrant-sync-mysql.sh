@@ -2,7 +2,7 @@
 
 
 echo BACKUP STAGE MYSQL
-ssh  myelxadmin@stagemyelx.cloudapp.net '/data/mysql_stage_backup.sh'
+ssh  myelxadmin@stagemyelx.cloudapp.net '/data/backups/mysql_stage_backup.sh'
 
 echo DROP LOCAL DATABASE
 
