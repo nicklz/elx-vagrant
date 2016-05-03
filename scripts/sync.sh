@@ -7,4 +7,4 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8" 
 
 cd ~/www/elx-server/packages/custom/elx/tools/ && ./vagrant-sync-mongo.sh
-cd ~/www/elx-server/packages/custom/elx/tools/ && ./vagrant-sync-mysql.sh
+cd ~/scripts/ && ./vagrant-sync-mysql.sh
