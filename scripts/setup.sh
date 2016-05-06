@@ -56,7 +56,7 @@ yes | sudo apt-get install -y mongodb-org
 sudo mkdir -p /data/db
 sudo sed -i 's/\/var\/lib\/mongodb/\/data\/db/g' /etc/mongod.conf
 #sudo mongod --port 27020 &
-sudo mongod &
+mongod &
 sudo mkdir /data
 sudo mkdir /data/mongo_backups
 sudo chmod 777 /data/mongo_backups
