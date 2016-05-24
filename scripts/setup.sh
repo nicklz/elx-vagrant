@@ -19,6 +19,8 @@ ssh-keyscan -H stagemyelx.cloudapp.net >> ~/.ssh/known_hosts
 ssh-keyscan -p 50018 -H stagemyelx.cloudapp.net >> ~/.ssh/known_hosts
 ssh-keyscan -p 62440 -H stagemyelx.cloudapp.net >> ~/.ssh/known_hosts
 ssh-keyscan -p 49894 -H stagemyelx.cloudapp.net >> ~/.ssh/known_hosts
+ssh-keyscan -p 49894 -H uatmyelx.cloudapp.net >> ~/.ssh/known_hosts
+
 
 
 
