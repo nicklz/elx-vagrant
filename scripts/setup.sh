@@ -59,7 +59,7 @@ sudo sed -i 's/\/var\/lib\/mongodb/\/data\/db/g' /etc/mongod.conf
 mongod &
 sudo mkdir /data
 sudo mkdir /data/mongo_backups
-sudo chmod 777 /data/mongo_backups
+sudo chmod 777 /data/ -R
 cd ~/www/elx-server/packages/custom/elx/tools/ && ./vagrant-sync-mongo.sh
 
 #mysql

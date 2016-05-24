@@ -23,7 +23,9 @@ sudo chown vagrant:vagrant /home/vagrant/.config/ -R
 cd ~/www/elx-interface && bower update
 
 sudo chown vagrant:vagrant /home/vagrant/.config/ -R
-cd ~/www/elx-server && ./jenkins.sh 
+cd ~/www/elx-server && ./jenkins.sh && rm node_modules/meanio -rf && npm install
+
+
 
 #wire everything up
 rm -rf /home/vagrant/www/elx-server/packages/custom/elx/public/assets 
